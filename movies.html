@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Movies | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <nav class="navbar">
+      <ul>
+        <li class="movie-type-list"><a class="nav-link" href ="movies.html#now-showing">Now Showing</a></li>
+        <li class="movie-type-list"><a class="nav-link" href ="movies.html#coming-soon">Coming Soon</a></li>
+      </ul>
+    </nav>
+
+    <!-- NOW SHOWING SECTION  -->
+    <h2 class="movie-type-header"><span class="movie-anchor" id="now-showing"></span>Now Showing</h2>
+
+    <div id="movie-page-content-container">
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Inception (2010). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/inception.jpg" alt="Poster image for Inception, 2010" 
+          title="Inception" id="ICN"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movie-title"><span class="movie-anchor"></span>Inception</h3>
+          <p class="movie-description">A team of professional thieves steal corporate secrets by infiltrating the 
+            dreams of their targets. Now they given a more dangerous task: to implant 
+            one person’s idea into the mind of another.</p>
+          <p><b>Release Date:</b> 16/07/2010</p>
+          <p><b>Duration:</b> 2h 28min</p>
+          <p><b>Director:</b> Christopher Nolan</p>
+          <p><b>Cast:</b>	Leonardo DiCaprio, Ken Watanabe, Joseph Gordon-Levitt, Marion Cotillard, 
+              Ellen Page, Tom Hardy, Cillian Murphy, Tom Berenger, Michael Caine</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt1375666/" target="_blank"><cite>Inception</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Inception (2010). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=2&v=8hP9D6kZseM&feature=emb_logo
+          -->
+          <iframe src="https://www.youtube.com/embed/8hP9D6kZseM"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen alt="Movie trailer for Inception, 2010"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for The Good, the Bad, and the Ugly (1966). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,656,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/gBU.jpg" alt="Poster image for The Good, the Bad, and the Ugly, 1966" 
+          title="The Good, the Bad, and the Ugly" id="GBU">
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movie-title"><span class="movie-anchor"></span>The Good, the Bad, and the Ugly</h3>
+          <p class="movie-description">Amidst the carnage of the Civil War, and against the scorching heat of the 
+            desert, three gunslingers race against time in a quest for stolen Confederate gold.</p>
+          <p><b>Release Date:</b> 23/12/1966</p>
+          <p><b>Duration:</b> 2h 57min</p>
+          <p><b>Director:</b> Sergio Leone</p>
+          <p><b>Cast:</b> Clint Eastwood, Eli Wallach, Lee Van Cleef</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0060196/" target="_blank"><cite>The Good, Bad, and the Ugly</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for The Good, The Bad, and the Ugly (1966). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=2&v=Q-mXj9RtKjg&feature=emb_logo
+          -->
+          <iframe src="https://www.youtube.com/embed/Q-mXj9RtKjg"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen alt="Movie trailer for the Good, the Bad, and the Ugly, 1966"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Interstellar (2014). [Illustration]. IMDb. 
+            https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_SX675_AL_.jpg
+          -->
+          <img src="images/movieImages/interstellar.jpg" alt="Poster image for Interstellar, 2014" 
+          title="Interstellar" id="ISR"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movie-title"><span class="movie-anchor"></span>Interstellar</h3>
+          <p class="movie-description">The earth is succumbing to a blight, and will soon become uninhabitable. 
+            To save the lives of their families and humanity, a group of astronauts must 
+            voyage beyond the borders of our solar system to look for a new homeworld.</p>
+          <p><b>Release Date:</b> 26/10/2014</p>
+          <p><b>Duration:</b> 2h 49min</p>
+          <p><b>Director:</b> Christopher Nolan</p>
+          <p><b>Cast:</b> Matthew McConaughey, Anne Hathaway, Jessica Chastain, Bill Irwin 
+            Ellen Burstyn, Michael Caine</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0816692/" target="_blank"><cite>Interstellar</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Interstellar (2014). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=zSWdZVtXT7E&feature=emb_logo
+          -->
+          <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen alt="Movie trailer for Interstellar, 2014"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Ocean’s Eleven (2001). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_CR0,0,675,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/oceansEleven2001.jpg" alt="Poster image for Ocean's Eleven, 2001" 
+          title="Ocean's Eleven" id="OE2001"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movie-title"><span class="movie-anchor"></span>Ocean's Eleven</h3>
+          <p class="movie-description">Danny Ocean just got out of prison. Now he’s getting even. He assembles 
+            a crack team of thieves, con men and infiltration experts to knock over the 
+            casino of the man dating his ex-wife.</p>
+          <p><b>Release Date:</b> 07/12/2001</p>
+          <p><b>Duration:</b> 1h 57min</p>
+          <p><b>Director:</b> Steve Soderbergh</p>
+          <p><b>Cast:</b> George Clooney, Matt Damon, Andy García, Brad Pitt, Julia Roberts</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0240772/" target="_blank"><cite>Ocean's Eleven</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Ocean’s Eleven (2001). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=I-8XtZ2M00Y&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/I-8XtZ2M00Y"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Ocean's Eleven, 2001"></iframe>
+          </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Transmorphers (2007). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BMTM4OTg0NTc5OV5BMl5BanBnXkFtZTcwNzg3MTEwMg@@._V1_.jpg
+          -->
+          <img src="images/movieImages/transmorphers.jpg" alt="Poster image for Transmorphers, 2007" 
+          title="Transmorphers" id="TM"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movieTitle"><span class="movieAnchor"></span>Transmorphers</h3>
+          <p class="movie-description">Four centuries ago, evil robots conquered the earth. Now, the last
+            survivors will band together and make one final stand for the fate of humanity.</p>
+          <p><b>Release Date:</b> 26/06/2007</p>
+          <p><b>Duration:</b> 1h 25min</p>
+          <p><b>Director:</b> Leigh Scott</p>
+          <p><b>Cast:</b> Matthew Wolf, Griff Furst, Eliza Swenson, Amy Weber, Shaley Scott</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0960835/" target="_blank"><cite>Transmorphers</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Transmorphers (2007). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=lhAefsEqJsI&feature=emb_logo
+          -->
+          <iframe src="https://www.youtube.com/embed/lhAefsEqJsI"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen alt="Movie trailer for Transmorphers, 2007"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Oceans 11 (1960). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BMjA5MzU1ODQzOF5BMl5BanBnXkFtZTgwNTA2MDE3MTE@._V1_SY1000_CR0,0,655,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/oceans11.jpg" alt="Poster image for Oceans 11, 1960" title="Oceans 11" id="OE1960"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movieTitle"><span class="movieAnchor"></span>Oceans 11</h3>
+          <p class="movie-description">If you liked the remake, you’ll love the original. Witness a heist of 
+            spectacular proportions, as Frank Sinatra’s Danny Ocean and his team 
+            hit the 60’s strip, to take down the richest casino in Vegas.</p>
+          <p><b>Release Date:</b> 10/08/1960</p>
+          <p><b>Duration:</b> 2h 7min</p>
+          <p><b>Director:</b> Lewis Milestone</p>
+          <p><b>Cast:</b> Frank Sinatra, Dean Martin, Sammy Davis, Jr., Peter Lawford, 
+            Joey Bishop, Angie Dickinson</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0054135/" target="_blank"><cite>Ocean's 11</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Oceans 11 (1960). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=gfEpqaNth1A&feature=emb_logo
+          -->
+          <iframe src="https://www.youtube.com/embed/gfEpqaNth1A"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen alt="Movie trailer for Oceans 11, 1960"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for The Shawshank Redemption (1994). [Illustration]. IMDb. 
+            https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg
+          -->
+          <img src="images/movieImages/shawshankRedemption.jpg" alt="Poster image for The Shawshank Redemption, 1994" 
+          title="The Shawshank Redemption" id="SR"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movieTitle"><span class="movieAnchor"></span>The Shawshank Redemption</h3>
+          <p class="movie-description">Two men are imprisoned for murder. One is innocent, the other is guilty. 
+            This is the story of their friendship, and their shared hope for a life beyond the walls.</p>
+          <p><b>Release Date:</b> 23/09/1994</p>
+          <p><b>Duration:</b> 2h 22min</p>
+          <p><b>Director:</b> Frank Darabont</p>
+          <p><b>Cast:</b> Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler, Clancy Brown,
+            Gil Bellows, James Whitmore</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0111161/" target="_blank"><cite>The Shawshank Redemption</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for The Shawshank Redemption (1994). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=6hB3S9bIaco&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/6hB3S9bIaco"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for The Shawshank Redemption, 1994"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Snakes on a Plane (2006). [Illustration]. IMDb. 
+            https://m.media-amazon.com/images/M/MV5BZDY3ODM2YTgtYTU5NC00MTE4LTkzNjktMzNhZWZmMzJjMWRjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg
+          -->
+          <img src="images/movieImages/snakeplane.jpg" alt="Poster image for Snakes on a Plane, 2006" 
+          title="Snakes on a Plane" id="SP"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movieTitle"><span class="movieAnchor"></span>Snakes on a Plane</h3>
+          <p class="movie-description">An FBI agent is escorting a witness by plane, to testify against a vicious mob boss. 
+            Little does he know that the mob boss has stuffed the plane with deadly venomous snakes.</p>
+          <p><b>Release Date:</b> 18/08/2006</p>
+          <p><b>Duration:</b> 1h 46min</p>
+          <p><b>Director:</b> David R. Ellis</p>
+          <p><b>Cast:</b> Samuel L. Jackson, Julianna Margulies, Nathan Phillips, Bobby Cannavale</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0417148/" target="_blank"><cite>Snakes on a Plane</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Snakes on a Plane (2006). [Video]. Youtube.
+            https://www.youtube.com/watch?v=qRK9SlFadEY&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/qRK9SlFadEY"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Snakes on a Plane, 2006"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Trailer for Snakes on a Train (2006). [Video]. Youtube.
+            https://m.media-amazon.com/images/M/MV5BMjA5OTgyMzE0Nl5BMl5BanBnXkFtZTgwMDczNjg4MDE@._V1_SY1000_CR0,0,716,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/snakestrain.jpg" alt="Poster image for Snakes on a Train, 2006" 
+          title="Snakes on a Train" id="ST"/>
+        </div>
+        <div class="movie-text-container">
+          <h3 class="movieTitle"><span class="movieAnchor"></span>Snakes on a Train</h3>
+          <p class="movie-description">An ancient Mayan curse is placed upon a young woman, causing snakes to hatch from 
+            within her stomach. She boards a train from Mexico to Los Angeles, seeking a cure. 
+            Now, the snakes have swarmed the train, threatening the lives of all on board.</p>
+          <p><b>Release Date:</b> 15/08/2006</p>
+          <p><b>Duration:</b> 1h 31min</p>
+          <p><b>Director:</b> The Mallachi Brothers</p>
+          <p><b>Cast:</b> Julia Ruiz, Giovanni Bejarano, Al Galvex</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt0843873/" target="_blank"><cite>Snakes on a Train</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Snakes on a Train (2006). [Video]. Youtube.
+            https://www.youtube.com/watch?v=d9mR2hLbPMg&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/d9mR2hLbPMg"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Snakes on a Train, 2006"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON SECTION -->
+    <h2 class="movie-type-header"><span class="movie-anchor" id="coming-soon"></span>Coming Soon</h2>
+
+    <div id="movie-page-content-container">
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Bill & Ted Face the Music (2020). [Illustration]. IMDb. 
+            https://m.media-amazon.com/images/M/MV5BNGFiNDc3NTUtODdmNC00MTI0LTk0NWUtMWU3OThjYzM1ZWUyXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SY1000_CR0,0,674,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/upcoming/billandted.jpg" alt="Poster image for Bill & Ted Face the Music, 2020" 
+          title="Bill & Ted Face the Music"/>
+        </div>
+        <div class="movie-text-container">
+          <h3>Bill & Ted Face the Music</h3>
+          <p class="movie-description">Bill and Ted were destined to save the world, but now their band is all washed up. 
+            To redeem themselves, they will travel to the future, to steal the song that will 
+            unite the world in peace.</p>
+          <p><b>Release Date:</b> 14/08/2020</p>
+          <p><b>Duration:</b> Unannounced</p>
+          <p><b>Director:</b> Dean Parisot</p>
+          <p><b>Cast:</b> Keanu Reeves, Alex Winter, William Sadler</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt1086064/" target="_blank"><cite>Bill & Ted Face the Music</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Poster for Bill & Ted Face the Music (2020). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=0hAL7emClFM&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/0hAL7emClFM"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Bill & Ted Face the Music, 2020"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Black Widow (2020). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BMzFiODE0ZDUtN2IxNC00OTI5LTg4OWItZTE2MjU4ZTk2NjM5XkEyXkFqcGdeQXVyNDYzODU1ODM@._V1_SY1000_CR0,0,674,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/upcoming/blackwidow.jpg" alt="Poster image for Black Widow, 2020" 
+          title="Black Widow"/>
+        </div>
+        <div class="movie-text-container">
+          <h3>Black Widow</h3>
+          <p class="movie-description">Witness the untold journey of Natasha Romaoff, as she ventures back to Russia to 
+            right the wrongs of her past, and face her greatest enemy.</p>
+          <p><b>Release Date:</b> 06/11/2020</p>
+          <p><b>Duration:</b> Unannounced</p>
+          <p><b>Director:</b> Cate Shortland</p>
+          <p><b>Cast:</b> Scarlett Johansson, Florence Pugh, David Harbour</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt3480822/" target="_blank"><cite>Black Widow</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Black Widow (2020). [Video]. Youtube.
+            https://www.youtube.com/watch?time_continue=1&v=ybji16u608U&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/ybji16u608U"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Black Widow, 2020"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for Tenet (2020). [Illustration]. IMDb.
+            https://m.media-amazon.com/images/M/MV5BNDhiZTE2NjUtMDlkNS00NGI5LWJkMjYtMjJhNzRhZmFkYTUxXkEyXkFqcGdeQXVyNjMwMzc3MjE@._V1_SY1000_CR0,0,674,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/upcoming/tenet.jpg" alt="Poster image for Tenet, 2020" 
+          title="Tenet"/>
+        </div>
+        <div class="movie-text-container">
+          <h3>Tenet</h3>
+          <p class="movie-description">A spy with the ability to rewind time is tasked with preventing World War 3.</p>
+          <p><b>Release Date:</b> 31/07/2020</p>
+          <p><b>Duration:</b> Unannounced</p>
+          <p><b>Director:</b> Christopher Nolan</p>
+          <p><b>Cast:</b> John David Washington, Robert Pattinson, Elizabeth Debicki</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt6723592/" target="_blank"><cite>Tenet</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Trailer for Tenet (2020). [Video]. Youtube.
+            https://www.youtube.com/watch?v=LdOM0x0XDMo&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/LdOM0x0XDMo"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer for Tenet, 2020"></iframe>
+        </div>
+      </div>
+      <div class="movie-listing-container">
+        <div class="movie-poster-container">
+          <!--
+            Poster for The Conjuring: The Devil Made Me Do It (2020). [Illustration]. IMDb. 
+            https://m.media-amazon.com/images/M/MV5BNWEyODg1NzktMGZkNS00MjZlLTlmOTAtZTIzNzdhZmIwNzE5XkEyXkFqcGdeQXVyNjIzNzM4NzA@._V1_SY1000_CR0,0,674,1000_AL_.jpg
+          -->
+          <img src="images/movieImages/upcoming/conjuring3.jpg" alt="Poster image for The Conjuring: The Devil Made Me Do It, 2020" 
+          title="The Conjuring: The Devil Made Me Do It"/>
+        </div>
+        <div class="movie-text-container">
+          <h3>The Conjuring: The Devil Made Me Do It</h3>
+          <p class="movie-description">Witness the origin of paranormal investigators Ed and Lorraine Warren, 
+            as they battle the Devil for the soul of a young boy.</p>
+          <p><b>Release Date:</b> 11/09/2020</p>
+          <p><b>Duration:</b> Unannounced</p>
+          <p><b>Director:</b> Michael Chaves</p>
+          <p><b>Cast:</b> Vera Farmiga, Patrick Wilson, Ruairi O'Connor</p>
+          <p><b>IMDB Page:</b> Visit <a href="https://www.imdb.com/title/tt7069210/" target="_blank"><cite>The Conjuring: The Devil Made Me Do It</cite></a> at IMDB</p>
+        </div>
+        <div class="movie-trailer-container">
+          <!--
+            Poster for The Conjuring: The Devil Made Me Do It (2020). [Video]. Youtube.
+            https://www.youtube.com/watch?v=Ny5flhAcItc&feature=emb_logo
+          -->
+            <iframe src="https://www.youtube.com/embed/Ny5flhAcItc"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen alt="Movie trailer The Conjuring: The Devil Made Me Do It, 2020"></iframe>
+        </div>
+      </div>
+    </div>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+<script type="text/babel">
+
+const navLinkSyles = {
+  backgroundColor: 'yellow',
+  color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

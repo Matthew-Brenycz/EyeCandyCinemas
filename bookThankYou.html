@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Thank You | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div id="thank-you-message">
+      <div id="thank-you-text-container">
+        <h2>Ticket Purchase Completed</h2>
+        <p id="thank-you-line">Thank You!</p>
+        <p><a href="index.html">Select this link to return to the Home Page</a></p>
+      </div>
+    </div>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  
+<script type="text/babel">
+
+const navLinkSyles = {
+  backgroundColor: 'yellow',
+  color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>

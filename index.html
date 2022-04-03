@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Home | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div id="image-banner">
+      <!--citations for the transition images
+
+          Photograph of People in a Movie Theatre. [Photograph]. HuffPost.
+          https://i.huffpost.com/gen/1631305/images/o-PEOPLE-IN-MOVIE-THEATER-facebook.jpg
+
+          Photograph of a Movie Theatre Interior. [Photograph]. Digital Trends.
+          https://icdn6.digitaltrends.com/image/digitaltrends/movie-theater-screen-768x768.jpg
+      -->
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li class="movie-type-list"><a class="nav-link" href ="movies.html#now-showing">Now Showing</a></li>
+        <li class="movie-type-list"><a class="nav-link" href ="movies.html#coming-soon">Coming Soon</a></li>
+      </ul>
+    </nav>
+    <figure id="image-link-gallery">
+      <!--citations for the movie poster images
+
+          Poster for Ocean’s Eleven (2001). [Illustration]. IMDb.
+          https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_CR0,0,675,1000_AL_.jpg
+
+
+          Poster for The Good, the Bad, and the Ugly (1966). [Illustration]. IMDb.
+          https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,656,1000_AL_.jpg
+
+
+          Poster for Ocean’s 11 (1960). [Illustration]. IMDb.
+          https://m.media-amazon.com/images/M/MV5BMjA5MzU1ODQzOF5BMl5BanBnXkFtZTgwNTA2MDE3MTE@._V1_SY1000_CR0,0,655,1000_AL_.jpg
+
+
+          Poster for The Shawshank Redemption (1994). [Illustration]. IMDb. 
+          https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg
+
+
+          Poster for Inception (2010). [Illustration]. IMDb.
+          https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg
+
+
+          Poster for Interstellar (2014). [Illustration]. IMDb. 
+          https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_SX675_AL_.jpg
+
+
+          Poster for Snakes on a Plane (2006). [Illustration]. IMDb. 
+          https://m.media-amazon.com/images/M/MV5BZDY3ODM2YTgtYTU5NC00MTE4LTkzNjktMzNhZWZmMzJjMWRjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg
+
+
+          Poster for Snakes on a Train (2006). [Illustration]. IMDb. 
+          https://m.media-amazon.com/images/M/MV5BZDY3ODM2YTgtYTU5NC00MTE4LTkzNjktMzNhZWZmMzJjMWRjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg
+
+
+          Poster for Transmorphers (2007). [Illustration]. IMDb. 
+          https://m.media-amazon.com/images/M/MV5BMTM4OTg0NTc5OV5BMl5BanBnXkFtZTcwNzg3MTEwMg@@._V1_.jpg
+      -->
+      <a href="movies.html#ICN">
+        <img class="movie-image-link" src="images/movieImages/inception.jpg" alt="Poster image for Inception, 2010" title="Inception"/>
+      </a>
+      <a href="movies.html#OE2001">
+        <img class="movie-image-link" src="images/movieImages/oceansEleven2001.jpg" alt="Poster image for Ocean's Eleven, 2001" title="Ocean's Eleven" width="169" height="250"/>
+      </a>
+      <a href="movies.html#GBU">
+        <img class="movie-image-link" src="images/movieImages/gBU.jpg" alt="Poster image for The Good, The Bad, and The Ugly, 1966" title="The Good, The Bad, and The Ugly" width="169" height="250"/>
+      </a>
+      <a href="movies.html#SR">
+        <img class="movie-image-link" src="images/movieImages/shawshankRedemption.jpg" alt="Poster image for The Shawshank Redemption, 1994" title="The Shawshank Redemption" width="169" height="250"/>
+      </a>
+      <a href="movies.html#ISR">
+        <img class="movie-image-link" src="images/movieImages/interstellar.jpg" alt="Poster image for Interstellar, 2014" title="Interstellar" width="169" height="250"/>
+      </a>
+      <a href="movies.html#OE1960">
+        <img class="movie-image-link" src="images/movieImages/oceans11.jpg" alt="Poster image for Oceans 11, 1960" title="Ocean's 11" width="169" height="250"/>
+      </a>
+      <a href="movies.html#TM">
+        <img class="movie-image-link" src="images/movieImages/transmorphers.jpg" alt="Poster image for Transmorphers, 2007" title="Transmorphers" width="169" height="250"/>
+      </a>
+      <a href="movies.html#ST">
+        <img class="movie-image-link" src="images/movieImages/snakestrain.jpg" alt="Poster image for Snakes on a Plane, 2006" title="Snakes on a Train" width="169" height="250"/>
+      </a>
+      <a href="movies.html#SP">
+        <img class="movie-image-link" src="images/movieImages/snakeplane.jpg" alt="Poster image for Snakes on a Train, 2006" title="Snakes on a Plane" width="169" height="250"/>
+      </a>
+    </figure>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+
+<script type="text/babel">
+
+// class constructor for image banners
+class Banner extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          // variable #1, contains the styles
+          bannerStyles: {
+              height: "auto",
+              width: "100%",
+          },
+          // variable #2, contains the image SCR
+          bannerSource: "images/stockImages/peopletheatre.jpg",
+          bannerSwitch: true
+      };
+  }
+
+  // timer switches between two different images, every 5 seconds
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.changeStyle(), 5000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  // use boolean comparison to switch between two different banner images
+  changeStyle(){
+
+    if (this.state.bannerSwitch){
+      this.setState({
+        bannerSource: "images/stockImages/redtheatre.jpg",
+        bannerSwitch: false
+      });
+    }
+    else {
+      this.setState({
+        bannerSource: "images/stockImages/peopletheatre.jpg",
+        bannerSwitch: true
+      });
+    }
+  }
+
+  render(){
+    return(
+      <img style={this.state.bannerStyles} src={this.state.bannerSource}></img>
+    );
+  }
+}
+
+ReactDOM.render(
+    <Banner/>,
+    document.querySelector('#image-banner')
+);
+
+
+const movieLinkStyles = {
+  border: '6px solid yellow',
+}
+
+const movieLinks = document.querySelector('#image-link-gallery');
+
+// apply styles to image gallery posters on mouseover
+movieLinks.addEventListener('mouseover', (event) => {
+  if (event.target.classList.contains('movie-image-link')) {
+    Object.assign(event.target.style, movieLinkStyles);
+  }
+});
+
+// remove styles from image gallery posters on mouseout
+movieLinks.addEventListener('mouseout', (event) => {
+  if (event.target.classList.contains('movie-image-link')) {
+    event.target.removeAttribute('style');
+  }
+});
+
+
+const navLinkSyles = {
+  backgroundColor: 'yellow',
+  color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+</script>
+
+</body>
+</html>

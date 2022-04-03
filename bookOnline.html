@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Book Online | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <form id="purchase-form" action="bookThankYou.html" onsubmit="return validatePurchaseForm()" method="POST">
+      <fieldset id="purchase-form-fieldset">
+        <h2>Purchase Tickets</h2>
+        <div id="purchase-form-container">
+          <p>Ticket Type</p>
+          <p>Price</p>
+          <p>Select Tickets</p>
+          <label class="ticket-type-label" for="adult-ticket">Adult</label>
+            <p class="ticket-price">$16.00</p>
+            <input id="adult-ticket" class="ticket-number" type="number" min="0" placeholder="0"/>
+          <label class="ticket-type-label" for="child-ticket">Child</label>
+            <p class="ticket-price">$12.00</p>
+            <input id="child-ticket" class="ticket-number" type="number" min="0" placeholder="0"/>
+          <label class="ticket-type-label" for="gold-card-ticket">Gold Card</label>
+            <p class="ticket-price">$13.00</p>
+            <input id="gold-card-ticket" class="ticket-number" type="number" min="0" placeholder="0"/>
+          <label id="total-cost-label">Total Cost</label>
+          <input id="total-cost-input" value="$0" readonly>
+          <input id="purchase-submit-button" type="submit" value="Submit"/>
+        </div>
+      </fieldset>
+      <div id="select-bar-container">
+        <div>
+          <select class="booking-selector" name="location" id="booking-location-select">
+            <option value="unchosen" aria-placeholder="Select Location">Select Location</option>
+            <option value="WLG">Wellington</option>
+            <option value="AKL">Auckland</option>
+            <option value="CCH">Christchurch</option>
+            <option value="HMT">Hamilton</option>
+          </select>
+        </div>
+        <div>
+          <select class="booking-selector" name="movie-title" id="booking-movie-select">
+            <option value="unchosen" aria-placeholder="Select Movie">Select Movie</option>
+            <option value="INC">Inception</option>
+            <option value="Ocean's Eleven 2001">Ocean's Eleven 2001</option>
+            <option value="The Good, The Bad, and the Ugly">The Good, The Bad, and the Ugly</option>
+            <option value="The Shawshank Redemption">The Shawshank Redemption</option>
+            <option value="Interstellar">Interstellar</option>
+            <option value="Oceans Eleven 1960">Oceans Eleven 1960</option>
+            <option value="Transmorphers">Transmorphers</option>
+            <option value="Snakes on a Train">Snakes on a Train</option>
+            <option value="Snakes on a Plane">Snakes on a Plane</option>
+          </select>
+        </div>
+        <div>
+          <select class="booking-selector" name="movie-time" id="booking-time-select">
+            <option value="unchosen" aria-placeholder="Select Time">Select Time</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="7:00 PM">7:00 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div id="seating-text-options">
+      <button id="seating-select-button">Select Seating</button>
+      <div id="accessibility-message-container"></div>
+      <div id="seat-select-display-container"></div>
+    </div>
+    <div id="direction-sign-top-container"></div>
+    <div id="seating-chart-container"></div>
+    <div id="direction-sign-bottom-container"></div>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+<script type="text/babel">
+
+// class constructor for seat icons
+class Seat extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        seatDesignation: props.seatDesignation,
+        seatClass: props.seatClass
+    };
+  }
+
+  render(){
+    return(
+      <div className={this.state.seatClass}>{this.state.seatDesignation}</div>
+    );
+  }
+}
+
+
+let renderData = [];
+// array to store clicked seat icons
+let clickedSeatIcons = [];
+
+// loop to set the class and letter/number for each seat icon by row
+// and push them to the renderData array
+for (var i = 1; i <= 160; i++) {
+  if (i <= 20) {
+    let seatClassTypes = "seat-icon accessible";
+    let seatLetterAndNumber = "A" + [i];
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 20 && i <= 40) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "B" + ([i] - 20);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 40 && i <= 60) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "C" + ([i] - 40);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 60 && i <= 80) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "D" + ([i] - 60);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 80 && i <= 100) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "E" + ([i] - 80);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 100 && i <= 120) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "F" + ([i] - 100);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 120 && i <= 140) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "G" + ([i] - 120);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+  if (i > 140 && i <= 160) {
+    let seatClassTypes = "seat-icon non-accessible";
+    let seatLetterAndNumber = "H" + ([i] - 140);
+    renderData.push(<Seat key={i} seatDesignation={seatLetterAndNumber} 
+                                  seatClass={seatClassTypes}/>);
+  }
+}
+
+
+let ticketTotals = document.getElementsByClassName('ticket-number');
+
+// event listener to adjust the calculated total cost when tickets are added or removed
+for (i = 0; i < ticketTotals.length; i++ ) {
+  ticketTotals[i].addEventListener('change', updateTotalCost);
+}
+
+// function that calculates the total ticket cost and displays it in the input
+function updateTotalCost() {
+
+  let totalCost = document.querySelector('#total-cost-input');
+  let adultTickets = document.querySelector('#adult-ticket');
+  let childTickets = document.querySelector('#child-ticket');
+  let goldCardTickets = document.querySelector('#gold-card-ticket');
+
+  totalCost.value = "$" + 
+    ((adultTickets.value * 16) + 
+    (childTickets.value * 12) + 
+    (goldCardTickets.value * 13));
+}
+
+// validates that a purchase contains at least one ticket, so that total cost is > $0
+// validates that the user has selected a location, movie, and time
+function validatePurchaseForm() {
+
+  let purchaseForm = document.forms['purchase-form'];
+
+  let totalCostAmount = purchaseForm['total-cost-input'].value;
+  if (totalCostAmount == "$0") {
+    alert("To make purchase, please select at least one ticket of any type.");
+    return false;
+  }
+
+  let locationSelect = purchaseForm['booking-location-select'].value
+  if (locationSelect == "unchosen") {
+    alert("Please select a theatre location from the dropdown menu.");
+    return false;
+  }
+
+  let movieSelect = purchaseForm['booking-movie-select'].value
+  if (movieSelect == "unchosen") {
+    alert("Please select a movie from the dropdown menu.");
+    return false;
+  }
+
+  let timeSelect = purchaseForm['booking-time-select'].value
+  if (timeSelect == "unchosen") {
+    alert("Please select a screening time from the dropdown menu.");
+    return false;
+  }
+
+}
+
+// open and close the seating selection on button click
+// displays the accessibility message, seating chart, and text area listing the selected seats
+// or removes them if they are already open
+
+const openSelectStyles = {
+  backgroundColor: 'black',
+  color: 'white',
+  fontWeight: 'bold'
+}
+
+let seatsDisplayed = false;
+
+const seatingSelectButton = document.querySelector('#seating-select-button');
+const seatingChart = document.querySelector('#seating-chart-container');
+
+seatingSelectButton.onclick = () => {
+
+  if (!seatsDisplayed) {
+
+    // define the elements to be rendered to the DOM
+    const accessibilityMessage = <p>For wheelchair accessibility, select seats 
+                                    A1 through A20 in the front row.</p>;
+    const selectedSeatDisplay = <textarea id="seat-display" 
+                                      form="purchase-form" 
+                                      placeholder="This display records your selected seats." 
+                                      readOnly={true}/>;
+    const directionSignTop = <img id="direction-sign-top" 
+                                  className="direction-sign-image" 
+                                  alt="Seats with letter A are in the front row. 
+                                   Seats with letter H are in the back row."></img>;
+    const directionSignBottom = <img id="direction-sign-bottom" 
+                                     className="direction-sign-image" 
+                                     alt=" "></img>;
+
+    // change seating chart display is set to grid to order the seat icons in a row/column format
+    seatingChart.style.display = 'grid';
+
+    ReactDOM.render(
+      accessibilityMessage,
+      document.querySelector('#accessibility-message-container')
+    );
+    ReactDOM.render(
+      selectedSeatDisplay,
+      document.querySelector('#seat-select-display-container')
+    );
+    ReactDOM.render(
+      directionSignTop,
+      document.querySelector('#direction-sign-top-container')
+    );
+    ReactDOM.render(
+      renderData,
+      document.querySelector('#seating-chart-container')
+    );
+    ReactDOM.render(
+      directionSignBottom,
+      document.querySelector('#direction-sign-bottom-container')
+    );
+    seatingSelectButton.innerHTML = "Close Seating Selector";
+    Object.assign(seatingSelectButton.style, openSelectStyles);
+    seatsDisplayed = true;
+  }
+
+  else {
+    seatingChart.style.display = 'none';
+    ReactDOM.unmountComponentAtNode(document.querySelector('#seating-chart-container'));
+    ReactDOM.unmountComponentAtNode(document.querySelector('#accessibility-message-container'));
+    ReactDOM.unmountComponentAtNode(document.querySelector('#seat-select-display-container'));
+    ReactDOM.unmountComponentAtNode(document.querySelector('#direction-sign-top-container'));
+    ReactDOM.unmountComponentAtNode(document.querySelector('#direction-sign-bottom-container'));
+    seatingSelectButton.innerHTML = "Select Seating";
+    seatingSelectButton.removeAttribute('style');
+    seatsDisplayed = false;
+    clickedSeatIcons = [];
+  }
+
+}
+
+// styles of seat icons on mouseover
+const mouseOverStyles = {
+  backgroundColor: 'yellow',
+  boxShadow: '0px 0px 0px 2px purple inset',
+  fontWeight: 'bold',
+  cursor: 'pointer'
+};
+
+// apply styles to seat icons on mouseover
+seatingChart.addEventListener('mouseover', (event) => {
+  if (event.target.classList.contains('seat-icon') &&
+    !clickedSeatIcons.includes(event.target)) {
+    Object.assign(event.target.style, mouseOverStyles);
+  }
+});
+
+
+// remove styles to seat icons on mouseover
+seatingChart.addEventListener('mouseout', (event) => {
+  if (event.target.classList.contains('seat-icon') && 
+    !clickedSeatIcons.includes(event.target)) {
+    event.target.removeAttribute('style');
+  }
+});
+
+// styles for clicked seat icons
+const clickStyles = {
+  backgroundColor: 'red',
+  boxShadow: '0px 0px 0px 3px black inset',
+  fontWeight: 'bold',
+};
+
+// on click, add styles to the seat icon, and show its letter/number in the text area display
+// or remove both if deselecting it
+seatingChart.addEventListener('click', (event) => {
+  const seatDisplay = document.querySelector('#seat-display');
+  let result = '';
+  if (event.target.classList.contains('seat-icon')) {
+    if (!clickedSeatIcons.includes(event.target)) {
+      Object.assign(event.target.style, clickStyles);
+      clickedSeatIcons.push(event.target);
+    }
+    else {
+      event.target.removeAttribute('style');
+      let index = clickedSeatIcons.indexOf(event.target);
+      if (index > -1) {
+        clickedSeatIcons.splice(index, 1);
+      }
+      // clear the last seat from the text area display on deselect
+      if (clickedSeatIcons.length <= 0) {
+        seatDisplay.value = '';
+      }
+    }
+    // checks the array for clicked seat icons, adds their letter/number to the input display
+    for (var i = 0; i < clickedSeatIcons.length; i++) {
+        result += clickedSeatIcons[i].textContent + ' ';
+        seatDisplay.value = result;
+    }
+  }
+});
+
+
+const navLinkSyles = {
+    backgroundColor: 'yellow',
+    color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+</script>
+
+</body>
+</html>

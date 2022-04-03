@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Contact Us | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <!--citation for the dog image
+      Image of a Dog with Movie Snacks. [Illustration]. PNG ALL.
+      http://www.pngall.com/cinema-png/download/23908
+      License: CC BY NC 4.0
+    -->
+    <img id="contact-image" src="images/stockImages/cinemaDog.png" alt="Image of a dog with sunglasses, holding movie snacks" title="Cinema Dog">
+    <form id="contact-form" action="contactThankYou.html" method="POST">
+      <fieldset id="contact-container">
+
+        <h2 id="contact-caption">Please Enter Your Information and Message</h1>
+
+        <!-- Username -->
+        <p><label for="user-name">Username</label><br>
+          <input type="text" id="user-name" name="user-name" aria-placeholder="Enter Username" required></p>
+
+        <!-- Password -->
+        <p><label for="password">Password</label><br>
+          <input type="text" id="password" name="password" aria-placeholder="Enter Password" required></p>
+
+        <!-- First Name -->
+        <p><label for="first-name">First Name</label><br>
+          <input type="text" id="first-name" name="first-name" aria-placeholder="Enter First Name" required></p>
+
+        <!-- Surname -->
+        <p><label for="surname">Surname</label><br>
+          <input type="text" id="surname" name="surname" aria-placeholder="Enter Surname" required></p>
+
+        <!-- Gender -->
+        <p><label for="gender">Gender</label><br>
+          <label class="small-label" for="female">Female</label>
+            <input type="radio" id="female" name="gender" value="female">
+          <label class="small-label" for="female">Male</label>
+            <input type="radio" id="male" name="gender" value="male">
+          <label class="small-label" for="female">Other</label>
+            <input type="radio" id="other" name="gender" value="other"></p>
+
+        <!-- Email -->
+        <p><label for="email">Email</label><br>
+          <input type="email" id="email" name="email" aria-placeholder="Enter Email" required></p>
+
+        <!-- Phone Number -->
+        <p><label for="phone-number">Phone Number</label><br>
+          <input type="tel" id="phone-number" name="phone-number" aria-placeholder="Enter Phone number" required></p>
+
+        <!-- Notifications -->
+        <p><label for="promotions">How Would You Like to Receive Notifications?</label><br>
+          <label class="small-label" for="txt-notif">Text</label>
+            <input type="checkbox" id="txt-notif" name="txt-notif" value="txt-notif">
+          <label class="small-label" for="email-notif">Email</label>
+            <input type="checkbox" id="email-notif" name="email-notif" value="email-notif"></p>
+
+        <!-- Contact Message -->
+        <p><label for="contact-message-text" id="contact-message-label">Message</label><br>
+          <textarea type="text" id="contact-message-text" name="contact-message-text" aria-placeholder="Enter Your Message Here" required></textarea></p>
+
+        <!-- Submit Button -->
+        <p><input id="contact-submit-button" type="submit" value="submit"></p>
+
+      </fieldset>
+    </form>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+
+<script type="text/babel">
+
+const contactSubmitButton = document.getElementById('contact-submit-button');
+
+// check the form HTML for required inputs, display alert message on unfilled
+contactSubmitButton.onclick = () => {
+  let formInput = document.getElementById('contact-form');
+  if (!formInput.checkValidity());
+}
+
+
+const navLinkSyles = {
+  backgroundColor: 'yellow',
+  color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+
+</script>
+
+</body>
+</html>

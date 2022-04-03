@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/eyeCandyStyles.css">
+  <title>Prices | ECC</title>
+</head>
+<body>
+  <div id="main-page-container">
+    <header id="logo">
+      <div id="logo-container"></div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href ="movies.html">Movies</a></li>
+        <li>
+          <form id="location-select">
+            <select name="cinema-location" id="cinema-location">
+              <option aria-placeholder="Select Location">Select Location</option>
+              <option value="WLG">Wellington</option>
+              <option value="AKL">Auckland</option>
+              <option value="CCH">Christchurch</option>
+              <option value="HMT">Hamilton</option>
+            </select>
+          </form>
+        </li>
+        <li><a class="nav-link" href ="prices.html">Prices</a></li>
+        <li><a class="nav-link" href = "bookOnline.html">Book Online</a></li>
+        <li id="login"><a class="nav-link" href ="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="price-tables">			
+      <table id="ticket-price-table">
+        <caption>Ticket Prices</caption>
+        <tr>
+          <th class="col1">Ticket Type</th>
+          <th class="col2">Morning</th>
+          <th class="col2">Afternoon</th>
+        </tr>
+        <tr>
+          <td>Adult</td>
+          <td>$16.00</td>
+          <td>$20.00</td>
+        </tr>
+        <tr>
+          <td>Child</td>
+          <td>$12.00</td>
+          <td>$18.00</td>
+        </tr>
+        <tr>
+          <td>Gold Card</td>
+          <td>$13.00</td>
+          <td>$19.00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="price-tables">
+      <table id="popcorn-softdrink-table">
+        <caption>Popcorn and Soft Drinks</caption>
+        <tr>
+          <th class="col1PS">Item</th>
+          <th class="col2PS">Small</th>
+          <th class="col2PS">Medium</th>
+          <th class="col2PS">Jumbo</th>
+        </tr>
+        <tr>
+          <td>Popcorn</td>
+          <td>$5.00</td>
+          <td>$7.00</td>
+          <td>$9.00</td>
+        </tr>
+        <tr>
+          <td>Soft Drink</td>
+          <td>$3.00</td>
+          <td>$4.00</td>
+          <td>$5.00</td>
+        </tr>
+        <tr>
+          <td>Hot Dog</td>
+          <td>$3.00</td>
+          <td>$4.00</td>
+          <td>$5.00</td>
+        </tr>
+        <tr>
+          <td>Pizza</td>
+          <td>$8.00</td>
+          <td>$12.00</td>
+          <td>$16.00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="price-tables">
+      <table id="candy-table">
+        <caption>Candy Selection</caption>
+        <tr>
+          <th class="col1">Item</th>
+          <th class="col2">Small</th>
+          <th class="col2">Large</th>
+        </tr>
+        <tr>
+          <td>Snicker</td>
+          <td>$1.50</td>
+          <td>$2.50</td>
+        </tr>
+        <tr>
+          <td>M&Ms</td>
+          <td>$2.00</td>
+          <td>$3.00</td>
+        </tr>
+        <tr>
+          <td>Junior Mint</td>
+          <td>$1.00</td>
+          <td>$2.00</td>
+        </tr>
+        <tr>
+          <td>Twizzler</td>
+          <td>$2.50</td>
+          <td>$4.00</td>
+        </tr>
+      </table>
+    </div>
+    <footer class="navbar">
+      <ul>
+        <li><a class="nav-link" id="copyright-symbol" href="#">&copy; EC Cinemas 2020</a></li>
+        <li><a class="nav-link" href ="#">Terms of Use</a></li>
+        <li><a class="nav-link" href ="#">Privacy Policy</a></li>
+        <li><a class="nav-link" href ="aboutUs.html">About Us</a></li>
+      </ul>
+    </footer>
+  </div>
+  
+
+<script type="text/babel">
+
+const navLinkSyles = {
+  backgroundColor: 'yellow',
+  color: 'black',
+}
+
+const navLinks = document.getElementsByClassName('navbar');
+
+// loop to apply the event listeners to all navbars [main menu, 'coming soon / now showing', footer]
+// add styles on mouseover, remove them on mouseout
+for (var i = 0; i < navLinks.length; i++) {
+
+  navLinks[i].addEventListener('mouseover', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+    }
+  });
+
+  navLinks[i].addEventListener('mouseout', (event) => {
+    if (event.target.classList.contains('nav-link')) {
+      Object.assign(event.target.style, navLinkSyles);
+      event.target.removeAttribute('style');
+    }  
+  });
+
+}
+
+</script>
+  
+</body>
+</html>
